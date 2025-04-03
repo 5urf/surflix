@@ -1,10 +1,4 @@
-import styled from "styled-components";
-
-const Svg = styled.svg`
-  width: 3rem;
-  color: inherit;
-  fill: currentColor;
-`;
+import { Svg } from "../styles/svgStyles";
 
 const MoonIcon = () => {
   return (

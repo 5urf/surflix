@@ -17,7 +17,7 @@ const Nav = styled(motion.nav)`
   width: 100%;
   top: 0;
   font-size: 14px;
-  padding: 20px 60px;
+  padding: 1.5rem 6rem;
   color: white;
   z-index: 100;
 
@@ -27,7 +27,7 @@ const Nav = styled(motion.nav)`
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
+    height: 80px;
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.7) 0%,

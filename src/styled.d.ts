@@ -1,8 +1,9 @@
 import "styled-components";
 
 declare module "styled-components" {
-  export type DefaultTheme = {
-    textColor: React.CSSProperties["color"];
-    activeTextColor: React.CSSProperties["color"];
-  };
+  export interface DefaultTheme {
+    textPrimary: React.CSSProperties["color"];
+    activePrimary: React.CSSProperties["color"];
+    iconPrimary: React.CSSProperties["color"];
+  }
 }

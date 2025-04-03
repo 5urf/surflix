@@ -7,9 +7,7 @@ const ToggleButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem;
   padding: 0.5rem;
-  color: inherit;
 `;
 
 const DarkModeSwitch = () => {
