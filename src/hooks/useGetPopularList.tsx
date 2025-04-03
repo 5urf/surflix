@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import MovieAPI from "../service/MovieAPI";
+import { fetchPopular } from "movieAPI";
 
 const useGetPopularList = () => {
   return useQuery({
     queryKey: ["popularList"],
-    queryFn: MovieAPI.fetchPopular,
+    queryFn: fetchPopular,
   });
 };
 

@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import MovieAPI from "../service/MovieAPI";
+import { fetchComingSoon } from "movieAPI";
 
 const useGetComingSoonList = () => {
   return useQuery({
     queryKey: ["comingSoonList"],
-    queryFn: MovieAPI.fetchComingSoon,
+    queryFn: fetchComingSoon,
   });
 };
 

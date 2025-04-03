@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import MovieAPI from "../service/MovieAPI";
+import { fetchNowPlaying } from "movieAPI";
 
 const useGetNowPlayingList = () => {
   return useQuery({
     queryKey: ["nowPlayingList"],
-    queryFn: MovieAPI.fetchNowPlaying,
+    queryFn: fetchNowPlaying,
   });
 };
 
