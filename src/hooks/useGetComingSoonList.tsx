@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchComingSoon } from "movieAPI";
+import { fetchComingSoon } from "../service/api";
 
 const useGetComingSoonList = () => {
   return useQuery({

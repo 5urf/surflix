@@ -1,5 +1,13 @@
+import Movies from "../components/Movies";
+import useGetPopularList from "../hooks/useGetPopularList";
+
 const Home = () => {
-  return <div>Home</div>;
+  const { data, isPending } = useGetPopularList();
+
+  //FIXME - 임시
+  if (isPending || !data) return <div>Loading ...</div>;
+
+  return <Movies movies={data} />;
 };
 
 export default Home;

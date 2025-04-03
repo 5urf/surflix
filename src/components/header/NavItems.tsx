@@ -23,7 +23,7 @@ const Item = styled.li`
 
 const Text = styled(motion.p)<{ isActive: boolean }>`
   color: ${(props) =>
-    props.isActive ? props.theme.activePrimary : props.theme.textPrimary};
+    props.isActive ? props.theme.activePrimary : props.theme.headerTextPrimary};
 
   transition: color 0.4s;
 

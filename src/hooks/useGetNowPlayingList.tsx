@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchNowPlaying } from "movieAPI";
+import { fetchNowPlaying } from "../service/api";
 
 const useGetNowPlayingList = () => {
   return useQuery({

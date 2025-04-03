@@ -1,5 +1,5 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { fetchPopular } from "movieAPI";
+import { fetchPopular } from "../service/api";
 
 const useGetPopularList = () => {
   return useQuery({
