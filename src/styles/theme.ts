@@ -7,6 +7,7 @@ export const darkTheme: DefaultTheme = {
 
   textPrimary: "#fff",
   textSecondary: "#e5e5e5",
+  bgPrimary: "#141414",
 };
 
 //FIXME - lightTheme 나중에 수정
@@ -16,4 +17,5 @@ export const lightTheme: DefaultTheme = {
   iconPrimary: "#fff",
   textPrimary: "#fff",
   textSecondary: "#e5e5e5",
+  bgPrimary: "#ffffff",
 };

@@ -57,6 +57,11 @@ html {
   box-sizing: border-box;
 }
 
+
+body {
+  background-color: ${({ theme }) => theme.bgPrimary};
+}
+
 a {
   text-decoration: none;
   color: inherit;

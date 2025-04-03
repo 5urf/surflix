@@ -1,4 +1,4 @@
-import Movies from "../components/Movies";
+import Movies from "../components/movies/Movies";
 import useGetPopularList from "../hooks/useGetPopularList";
 
 const Home = () => {

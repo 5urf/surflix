@@ -1,3 +1,4 @@
+import React from "react";
 import "styled-components";
 
 declare module "styled-components" {
@@ -7,5 +8,6 @@ declare module "styled-components" {
     iconPrimary: React.CSSProperties["color"];
     textPrimary: React.CSSProperties["color"];
     textSecondary: React.CSSProperties["color"];
+    bgPrimary: React.CSSProperties["color"];
   }
 }

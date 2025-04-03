@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import InfoIcon from "../../assets/InfoIcon";
+import InfoIcon from "../../../assets/InfoIcon";
 
 const Container = styled.div`
   margin-top: 1rem;
-  width: 15%;
+  width: 100%;
 `;
 
 const Btn = styled.button`
