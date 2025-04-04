@@ -1,6 +1,7 @@
 // components/movies/MovieCard.tsx
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
+import { useShallow } from "zustand/shallow";
 import { useModalStore } from "../../store/modalStore";
 import { makeImagePath } from "../../utils/imgUtil";
 
@@ -75,7 +76,11 @@ const cardVariants: Variants = {
 };
 
 const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
-  const { openModal } = useModalStore();
+  const { openModal } = useModalStore(
+    useShallow((state) => ({
+      openModal: state.openModal,
+    }))
+  );
   return (
     <Card
       variants={cardVariants}

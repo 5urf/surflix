@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { useShallow } from "zustand/shallow";
 import InfoIcon from "../../../assets/InfoIcon";
+import { useModalStore } from "../../../store/modalStore";
 
 const Container = styled.div`
   margin-top: 1rem;
@@ -30,10 +32,19 @@ const Text = styled.p`
   color: ${({ theme }) => theme.textPrimary};
 `;
 
-const InfoBtn = () => {
+interface IInfoBtnProps {
+  movieId: number;
+}
+
+const InfoBtn = ({ movieId }: IInfoBtnProps) => {
+  const { openModal } = useModalStore(
+    useShallow((state) => ({
+      openModal: state.openModal,
+    }))
+  );
   return (
     <Container>
-      <Btn>
+      <Btn onClick={() => openModal(movieId)}>
         <InfoIcon />
         <Text>Infomation</Text>
       </Btn>
