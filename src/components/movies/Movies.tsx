@@ -8,11 +8,7 @@ interface IMoviesProps {
 const Movies = ({ movies }: IMoviesProps) => {
   return (
     <>
-      <MainBanner
-        backdropPath={movies.results[0].backdrop_path}
-        title={movies.results[0].title}
-        overview={movies.results[0].overview}
-      />
+      <MainBanner firstMovie={movies.results[0]} />
       <MovieGrid movies={movies.results} />
     </>
   );

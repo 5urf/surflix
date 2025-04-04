@@ -55,18 +55,18 @@ const Overview = styled.p`
 `;
 
 interface IMainBannerProps {
-  backdropPath: string;
-  title: string;
-  overview: string;
+  firstMovie: Movie.Movie;
 }
 
-const MainBanner = ({ backdropPath, title, overview }: IMainBannerProps) => {
+const MainBanner = ({
+  firstMovie: { title, overview, id, backdrop_path },
+}: IMainBannerProps) => {
   return (
-    <Banner $bgPhoto={makeImagePath(backdropPath)}>
+    <Banner $bgPhoto={makeImagePath(backdrop_path)}>
       <Content>
         <Title>{title}</Title>
         <Overview>{overview}</Overview>
-        <InfoBtn />
+        <InfoBtn movieId={id} />
       </Content>
     </Banner>
   );
