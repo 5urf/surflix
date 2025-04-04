@@ -18,7 +18,7 @@ export const fetchComingSoon =
   };
 
 export const fetchMovieDetail = async (
-  id: string
+  id: number
 ): Promise<Movie.MovieDetail> => {
   const response = await fetch(`${BASE_URL}/movie?id=${id}`);
   return response.json();
