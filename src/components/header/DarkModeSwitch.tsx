@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import MoonIcon from "../../assets/MoonIcon";
 import SunIcon from "../../assets/SunIcon";
-import { useThemeStore } from "../../store/\bthemeStore";
+import { useThemeStore } from "../../store/themeStore";
 
 const ToggleButton = styled.button`
   background: none;

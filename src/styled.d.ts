@@ -8,6 +8,8 @@ declare module "styled-components" {
     iconPrimary: React.CSSProperties["color"];
     textPrimary: React.CSSProperties["color"];
     textSecondary: React.CSSProperties["color"];
+    textTertiary: React.CSSProperties["color"];
     bgPrimary: React.CSSProperties["color"];
+    bgSecondary: React.CSSProperties["color"];
   }
 }
