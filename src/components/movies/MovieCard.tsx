@@ -51,7 +51,7 @@ const Info = styled(motion.div)`
 const MovieTitle = styled.h3`
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
-  color: ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.cardTitleColor};
 `;
 
 const Rating = styled.span`

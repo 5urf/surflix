@@ -11,5 +11,8 @@ declare module "styled-components" {
     textTertiary: React.CSSProperties["color"];
     bgPrimary: React.CSSProperties["color"];
     bgSecondary: React.CSSProperties["color"];
+    cardTitleColor: React.CSSProperties["color"];
+    bannerGradientPrimary: string;
+    bannerGradientSecondary: string;
   }
 }

@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { useShallow } from "zustand/shallow";
+import { useThemeStore } from "../../../store/themeStore";
 import { makeImagePath } from "../../../utils/imgUtil";
 import InfoBtn from "./InfoBtn";
 
-const Banner = styled.div<{ $bgPhoto: string }>`
+const Banner = styled.div<{ $bgPhoto: string; $isDark: boolean }>`
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -20,13 +22,7 @@ const Banner = styled.div<{ $bgPhoto: string }>`
     bottom: 0;
     width: 100%;
     height: 60%;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(18, 18, 18, 0.3) 50%,
-      rgba(18, 18, 18, 0.8) 80%,
-      rgba(18, 18, 18, 1) 100%
-    );
+    background: ${({ theme }) => theme.bannerGradientPrimary};
     pointer-events: none;
   }
 `;
@@ -61,8 +57,14 @@ interface IMainBannerProps {
 const MainBanner = ({
   firstMovie: { title, overview, id, backdrop_path },
 }: IMainBannerProps) => {
+  const { isDarkMode } = useThemeStore(
+    useShallow((state) => ({
+      isDarkMode: state.isDarkMode,
+    }))
+  );
+
   return (
-    <Banner $bgPhoto={makeImagePath(backdrop_path)}>
+    <Banner $bgPhoto={makeImagePath(backdrop_path)} $isDark={isDarkMode}>
       <Content>
         <Title>{title}</Title>
         <Overview>{overview}</Overview>

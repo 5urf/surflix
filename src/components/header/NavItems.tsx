@@ -22,16 +22,16 @@ const Item = styled.li`
 `;
 
 const Text = styled(motion.p)<{ isActive: boolean }>`
-  color: ${(props) =>
-    props.isActive ? props.theme.activePrimary : props.theme.headerTextPrimary};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.activePrimary : theme.headerTextPrimary};
 
   transition: color 0.4s;
 
-  ${(props) =>
-    !props.isActive &&
+  ${({ isActive, theme }) =>
+    !isActive &&
     `
     &:hover {
-      color: #b3b3b3;
+      color: ${theme.activePrimary};
     }
   `}
 `;

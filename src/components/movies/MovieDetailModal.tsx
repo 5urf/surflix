@@ -15,7 +15,7 @@ const Container = styled.div`
 const Banner = styled.div<{ $bgPhoto: string }>`
   position: relative;
   height: 40rem;
-  background-image: linear-gradient(to top, #181818, transparent 50%),
+  background-image: ${({ theme }) => theme.bannerGradientSecondary},
     url(${(props) => props.$bgPhoto});
   background-size: cover;
   background-position: center top;
