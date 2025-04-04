@@ -1,6 +1,7 @@
 // components/movies/MovieCard.tsx
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
+import { useModalStore } from "../../store/modalStore";
 import { makeImagePath } from "../../utils/imgUtil";
 
 const Card = styled(motion.div)`
@@ -74,9 +75,14 @@ const cardVariants: Variants = {
 };
 
 const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
-  console.log("📢[MovieCard.tsx:65]: id: ", id);
+  const { openModal } = useModalStore();
   return (
-    <Card variants={cardVariants} whileHover='hover'>
+    <Card
+      variants={cardVariants}
+      whileHover='hover'
+      layoutId={String(id)}
+      onClick={() => openModal(id)}
+    >
       <PosterContainer>
         <Poster src={`${makeImagePath(posterPath, "w500")}`} alt={title} />
       </PosterContainer>
