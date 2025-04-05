@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
 import { useModalStore } from "../../store/modalStore";
+import {
+  formatFullYear,
+  formatGenres,
+  formatLocaleString,
+  formatRating,
+  formatRuntime,
+} from "../../utils/formatUtil";
 import { makeImagePath } from "../../utils/imgUtil";
 
 const Container = styled.div`
@@ -116,30 +123,13 @@ const MovieDetail = ({ detailData }: IMovieDetailProps) => {
     }))
   );
 
-  const formatRuntime = (minutes: number) => {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return `${hours}시간 ${mins}분`;
-  };
-
-  const formatGenres = (genres: Movie.Genre[], maxCount = 4) => {
-    if (genres.length <= maxCount) {
-      return genres.map((g) => g.name).join(", ");
-    }
-
-    return `${genres
-      .slice(0, maxCount)
-      .map((g) => g.name)
-      .join(", ")}...`;
-  };
-
   return (
     <Container>
       <CloseBtn onClick={closeModal}>✕</CloseBtn>
       <Banner $bgPhoto={makeImagePath(detailData.backdrop_path)}>
         <Title>{detailData.title}</Title>
         <MetaInfo>
-          <p>{new Date(detailData.release_date).getFullYear()}</p>
+          <p>{formatFullYear(detailData.release_date)}</p>
           <p>{formatRuntime(detailData.runtime)}</p>
         </MetaInfo>
       </Banner>
@@ -152,12 +142,12 @@ const MovieDetail = ({ detailData }: IMovieDetailProps) => {
             </DetailItem>
             <DetailItem>
               <span>개봉일:</span>
-              <p> {detailData.release_date.toLocaleString()}</p>
+              <p>{formatLocaleString(detailData.release_date)}</p>
             </DetailItem>
           </DetailColumn>
           <DetailColumn>
             <DetailItem>
-              <span>평점:</span> <p>{detailData.vote_average.toFixed(1)}</p>
+              <span>평점:</span> <p>{formatRating(detailData.vote_average)}</p>
             </DetailItem>
             <DetailItem>
               <span>원제:</span> <p>{detailData.original_title}</p>

@@ -2,6 +2,7 @@ import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
 import { useModalStore } from "../../store/modalStore";
+import { formatRating } from "../../utils/formatUtil";
 import { makeImagePath } from "../../utils/imgUtil";
 
 const Card = styled(motion.div)`
@@ -92,7 +93,7 @@ const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
       </PosterContainer>
       <Info>
         <MovieTitle>{title}</MovieTitle>
-        <Rating>★ {voteAverage.toFixed(1)}</Rating>
+        <Rating>★ {formatRating(voteAverage)}</Rating>
       </Info>
     </Card>
   );

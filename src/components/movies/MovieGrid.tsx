@@ -49,7 +49,6 @@ const MovieGrid = ({ movies }: IMovieGridProps) => {
         {movies.slice(1).map((movie) => (
           <CardWrapper key={movie.id} variants={cardItemVariants}>
             <MovieCard
-              key={movie.id}
               id={movie.id}
               title={movie.title}
               posterPath={movie.poster_path}
