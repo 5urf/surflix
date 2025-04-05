@@ -9,7 +9,7 @@ const Container = styled.div`
 
   max-width: 30rem;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     max-width: 100%;
   }
 `;

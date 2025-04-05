@@ -14,5 +14,6 @@ declare module "styled-components" {
     cardTitleColor: React.CSSProperties["color"];
     bannerGradientPrimary: string;
     bannerGradientSecondary: string;
+    mobile: string;
   }
 }

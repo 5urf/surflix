@@ -18,10 +18,9 @@ const Nav = styled(motion.nav)`
   top: 0;
   font-size: 14px;
   padding: 1.5rem 6rem;
-  color: white;
   z-index: 100;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     padding: 1.5rem 2rem;
     flex-direction: column;
     align-items: center;
@@ -50,7 +49,7 @@ const HeaderContent = styled.div`
   align-items: center;
   width: 100%;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     flex-direction: column;
     gap: 1rem;
   }

@@ -11,7 +11,6 @@ const Container = styled.div`
 const Items = styled.ul`
   display: flex;
   align-items: center;
-  gap: 2rem;
 `;
 
 const Item = styled.li`
@@ -19,6 +18,11 @@ const Item = styled.li`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer;
+
+  a {
+    padding: 1rem;
+  }
 `;
 
 const Text = styled(motion.p)<{ isActive: boolean }>`
@@ -27,13 +31,9 @@ const Text = styled(motion.p)<{ isActive: boolean }>`
 
   transition: color 0.4s;
 
-  ${({ isActive, theme }) =>
-    !isActive &&
-    `
-    &:hover {
-      color: ${theme.activePrimary};
-    }
-  `}
+  &:hover {
+    color: ${({ theme }) => theme.activePrimary};
+  }
 `;
 
 const NavItems = () => {

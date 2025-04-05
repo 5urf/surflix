@@ -88,7 +88,7 @@ const DetailSection = styled.div`
   display: flex;
   margin-top: 2.4rem;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     flex-direction: column;
   }
 `;
@@ -105,7 +105,7 @@ const DetailItem = styled.div`
   span {
     word-break: keep-all;
     color: ${({ theme }) => theme.textTertiary};
-    margin-right: 8px;
+    margin-right: 0.8rem;
   }
   p {
     color: ${({ theme }) => theme.textSecondary};

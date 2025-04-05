@@ -15,7 +15,7 @@ const Banner = styled.div<{ $bgPhoto: string; $isDark: boolean }>`
   background-size: cover;
   background-position: center top;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     height: 50vh;
     padding: 0 2rem 2rem;
   }
@@ -37,7 +37,7 @@ const Content = styled.div`
   z-index: 1;
   width: 50%;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     width: 100%;
   }
 `;
@@ -49,7 +49,7 @@ const Title = styled.h2`
   font-weight: 700;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     font-size: 2.8rem;
   }
 `;
@@ -62,7 +62,7 @@ const Overview = styled.p`
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   line-height: 1.3;
 
-  @media (max-width: 768px) {
+  ${({ theme }) => theme.mobile} {
     font-size: 1.4rem;
     margin-bottom: 1.2rem;
   }
