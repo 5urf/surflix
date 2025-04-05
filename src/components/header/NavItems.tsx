@@ -11,10 +11,10 @@ const Container = styled.div`
 const Items = styled.ul`
   display: flex;
   align-items: center;
+  gap: 2rem;
 `;
 
 const Item = styled.li`
-  margin-right: 20px;
   position: relative;
   display: flex;
   justify-content: center;

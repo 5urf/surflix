@@ -21,6 +21,12 @@ const Nav = styled(motion.nav)`
   color: white;
   z-index: 100;
 
+  @media (max-width: 768px) {
+    padding: 1.5rem 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -35,6 +41,18 @@ const Nav = styled(motion.nav)`
     );
     pointer-events: none;
     z-index: -1;
+  }
+`;
+
+const HeaderContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
   }
 `;
 
@@ -66,8 +84,10 @@ const Header = () => {
 
   return (
     <Nav variants={navVariants} animate={navAnimation} initial={"top"}>
-      <NavItems />
-      <DarkModeSwitch />
+      <HeaderContent>
+        <NavItems />
+        <DarkModeSwitch />
+      </HeaderContent>
     </Nav>
   );
 };

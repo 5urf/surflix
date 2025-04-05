@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const LogoSvg = styled.svg`
-  margin-right: 50px;
-  width: 95px;
-  height: 25px;
+  margin-right: 5rem;
+  width: 9.5rem;
+  height: 2.5rem;
   fill: red;
 `;
 
