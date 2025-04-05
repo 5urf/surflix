@@ -85,11 +85,4 @@ declare namespace Movie {
   }
 }
 
-declare module "movieAPI" {
-  export const fetchPopular: () => Promise<MovieAPI.MovieListResponse>;
-  export const fetchNowPlaying: () => Promise<MovieAPI.MovieListWithDatesResponse>;
-  export const fetchComingSoon: () => Promise<MovieAPI.MovieListWithDatesResponse>;
-  export const fetchMovieDetail: (id: number) => Promise<MovieAPI.MovieDetail>;
-}
-
-export as namespace MovieAPI;
+export as namespace Movie;
