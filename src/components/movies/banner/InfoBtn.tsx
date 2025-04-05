@@ -46,7 +46,7 @@ const InfoBtn = ({ movieId }: IInfoBtnProps) => {
     <Container>
       <Btn onClick={() => openModal(movieId)}>
         <InfoIcon />
-        <Text>Infomation</Text>
+        <Text>More Info</Text>
       </Btn>
     </Container>
   );

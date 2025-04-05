@@ -15,6 +15,11 @@ const Banner = styled.div<{ $bgPhoto: string; $isDark: boolean }>`
   background-size: cover;
   background-position: center top;
 
+  @media (max-width: 768px) {
+    height: 50vh;
+    padding: 0 2rem 2rem;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -31,6 +36,10 @@ const Content = styled.div`
   position: relative;
   z-index: 2;
   width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h2`
@@ -39,6 +48,10 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.textPrimary};
   font-weight: 700;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+  }
 `;
 
 const Overview = styled.p`
@@ -48,6 +61,11 @@ const Overview = styled.p`
   color: ${({ theme }) => theme.textSecondary};
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
 `;
 
 interface IMainBannerProps {
