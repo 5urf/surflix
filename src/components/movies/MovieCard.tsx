@@ -1,4 +1,5 @@
 import { motion, Variants } from "framer-motion";
+import { useLocation } from "react-router";
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
 import { useModalStore } from "../../store/modalStore";
@@ -76,6 +77,9 @@ const cardVariants: Variants = {
 };
 
 const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
+  const location = useLocation();
+  const layoutId = `${location.pathname}-${id}`;
+
   const { openModal } = useModalStore(
     useShallow((state) => ({
       openModal: state.openModal,
@@ -85,7 +89,7 @@ const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
     <Card
       variants={cardVariants}
       whileHover='hover'
-      layoutId={String(id)}
+      layoutId={layoutId}
       onClick={() => openModal(id)}
     >
       <PosterContainer>
