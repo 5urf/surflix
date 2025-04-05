@@ -25,6 +25,29 @@ const Banner = styled.div<{ $bgPhoto: string }>`
   justify-content: flex-end;
 `;
 
+const CloseBtn = styled.button`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #181818;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+
+  transition: background-color 0.1s ease-in-out;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+`;
+
 const Title = styled.h2`
   font-size: 4rem;
   font-weight: 700;
@@ -44,7 +67,7 @@ const MetaInfo = styled.div`
   }
 `;
 
-const Content = styled.div`
+const ContentSection = styled.div`
   padding: 0 4.8rem 4.8rem;
 `;
 
@@ -58,6 +81,10 @@ const Overview = styled.p`
 const DetailSection = styled.div`
   display: flex;
   margin-top: 2.4rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const DetailColumn = styled.div`
@@ -67,9 +94,10 @@ const DetailColumn = styled.div`
 const DetailItem = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 1.6rem;
   font-size: 1.4rem;
   span {
+    word-break: keep-all;
     color: ${({ theme }) => theme.textTertiary};
     margin-right: 8px;
   }
@@ -95,13 +123,21 @@ const MovieDetailModal = ({ detailData }: IMovieDetailModalProps) => {
     return `${hours}시간 ${mins}분`;
   };
 
-  const formatGenres = (genres: Movie.Genre[]) => {
-    return genres.map((g) => g.name).join(", ");
+  const formatGenres = (genres: Movie.Genre[], maxCount = 4) => {
+    if (genres.length <= maxCount) {
+      return genres.map((g) => g.name).join(", ");
+    }
+
+    return `${genres
+      .slice(0, maxCount)
+      .map((g) => g.name)
+      .join(", ")}...`;
   };
 
   return (
     <Modal onClose={closeModal}>
       <Container>
+        <CloseBtn onClick={closeModal}>✕</CloseBtn>
         <Banner $bgPhoto={makeImagePath(detailData.backdrop_path)}>
           <Title>{detailData.title}</Title>
           <MetaInfo>
@@ -109,7 +145,7 @@ const MovieDetailModal = ({ detailData }: IMovieDetailModalProps) => {
             <p>{formatRuntime(detailData.runtime)}</p>
           </MetaInfo>
         </Banner>
-        <Content>
+        <ContentSection>
           <Overview>{detailData.overview}</Overview>
           <DetailSection>
             <DetailColumn>
@@ -130,7 +166,7 @@ const MovieDetailModal = ({ detailData }: IMovieDetailModalProps) => {
               </DetailItem>
             </DetailColumn>
           </DetailSection>
-        </Content>
+        </ContentSection>
       </Container>
     </Modal>
   );
