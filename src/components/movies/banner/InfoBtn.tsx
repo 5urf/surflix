@@ -6,6 +6,12 @@ import { useModalStore } from "../../../store/modalStore";
 const Container = styled.div`
   margin-top: 1rem;
   width: 100%;
+
+  max-width: 30rem;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 const Btn = styled.button`
