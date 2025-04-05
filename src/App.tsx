@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import Header from "./components/header/Header";
@@ -18,11 +19,13 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Container>
-        <Header />
-        <Outlet />
-      </Container>
-      {isOpen && <MovieDetailModal />}
+      <AnimatePresence>
+        <Container>
+          <Header />
+          <Outlet />
+        </Container>
+        {isOpen && <MovieDetailModal />}
+      </AnimatePresence>
     </ThemeProvider>
   );
 }

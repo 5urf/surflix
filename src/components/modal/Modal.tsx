@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
-import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
+import { useModalStore } from "../../store/modalStore";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -16,10 +16,10 @@ const Overlay = styled(motion.div)`
   z-index: 1000;
 `;
 
-const ModalContainer = styled.div`
+const ModalContainer = styled(motion.div)`
   background-color: ${({ theme }) => theme.bgSecondary};
   border-radius: 0.8rem;
-  max-width: 800px;
+  max-width: 80rem;
   width: 90%;
   max-height: 90vh;
   overflow: hidden;
@@ -51,14 +51,16 @@ interface IModalProps {
 
 const Modal = ({ onClose, children }: IModalProps) => {
   const portalElement = document.getElementById("portal-root") || document.body;
+  const layoutId = useModalStore((state) => state.layoutId);
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
+  //NOTE - scroll을 방지하면 기존 UI가 깨지는 현상 때문에 임시 주석
+  // useEffect(() => {
+  //   document.body.style.overflow = "hidden";
 
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, []);
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // }, []);
 
   return createPortal(
     <Overlay
@@ -68,7 +70,7 @@ const Modal = ({ onClose, children }: IModalProps) => {
       exit='exit'
       animate='animate'
     >
-      <ModalContainer onClick={(e) => e.stopPropagation()}>
+      <ModalContainer onClick={(e) => e.stopPropagation()} layoutId={layoutId}>
         {children}
       </ModalContainer>
     </Overlay>,
