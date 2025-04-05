@@ -1,5 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { Outlet } from "react-router";
+import { Fragment } from "react/jsx-runtime";
 import styled, { ThemeProvider } from "styled-components";
 import Header from "./components/header/Header";
 import MovieDetailModal from "./components/movies/MovieDetailModal";
@@ -20,11 +21,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <AnimatePresence>
-        <Container>
-          <Header />
-          <Outlet />
-        </Container>
-        {isOpen && <MovieDetailModal />}
+        <Fragment>
+          <Container>
+            <Header />
+            <Outlet />
+          </Container>
+          {isOpen && <MovieDetailModal />}
+        </Fragment>
       </AnimatePresence>
     </ThemeProvider>
   );

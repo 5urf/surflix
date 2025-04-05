@@ -1,4 +1,4 @@
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
@@ -86,22 +86,20 @@ const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
     }))
   );
   return (
-    <AnimatePresence>
-      <Card
-        variants={cardVariants}
-        whileHover='hover'
-        layoutId={layoutId}
-        onClick={() => openModal(id, layoutId)}
-      >
-        <PosterContainer>
-          <Poster src={`${makeImagePath(posterPath, "w500")}`} alt={title} />
-        </PosterContainer>
-        <Info>
-          <MovieTitle>{title}</MovieTitle>
-          <Rating>★ {formatRating(voteAverage)}</Rating>
-        </Info>
-      </Card>
-    </AnimatePresence>
+    <Card
+      variants={cardVariants}
+      whileHover='hover'
+      layoutId={layoutId}
+      onClick={() => openModal(id, layoutId)}
+    >
+      <PosterContainer>
+        <Poster src={`${makeImagePath(posterPath, "w500")}`} alt={title} />
+      </PosterContainer>
+      <Info>
+        <MovieTitle>{title}</MovieTitle>
+        <Rating>★ {formatRating(voteAverage)}</Rating>
+      </Info>
+    </Card>
   );
 };
 
