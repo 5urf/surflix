@@ -1,11 +1,11 @@
+import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
 import Movies from "../components/movies/Movies";
 import useGetNowPlayingList from "../hooks/useGetNowPlayingList";
 
 const NowPlaying = () => {
   const { data, isPending } = useGetNowPlayingList();
 
-  //FIXME - 임시
-  if (isPending || !data) return <div>Loading ...</div>;
+  if (isPending || !data) return <LoadingSpinner />;
 
   return <Movies movies={data} />;
 };
