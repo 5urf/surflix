@@ -1,7 +1,7 @@
 import { Outlet } from "react-router";
 import styled, { ThemeProvider } from "styled-components";
 import Header from "./components/header/Header";
-import MovieDetailModalContainer from "./components/movies/MovieDetailModalContainer";
+import MovieDetailModal from "./components/movies/MovieDetailModal";
 import { useModalStore } from "./store/modalStore";
 import { useThemeStore } from "./store/themeStore";
 import { GlobalStyle } from "./styles/globalStyles";
@@ -22,7 +22,7 @@ function App() {
         <Header />
         <Outlet />
       </Container>
-      {isOpen && <MovieDetailModalContainer />}
+      {isOpen && <MovieDetailModal />}
     </ThemeProvider>
   );
 }

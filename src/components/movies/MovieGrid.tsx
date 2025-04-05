@@ -1,4 +1,3 @@
-// components/movies/MovieGrid.tsx
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
 import MovieCard from "./MovieCard";

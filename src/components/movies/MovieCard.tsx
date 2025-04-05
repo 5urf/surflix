@@ -1,4 +1,3 @@
-// components/movies/MovieCard.tsx
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
