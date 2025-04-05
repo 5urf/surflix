@@ -1,8 +1,9 @@
+import { motion, Variants } from "framer-motion";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
 
-const Overlay = styled.div`
+const Overlay = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -25,6 +26,23 @@ const ModalContainer = styled.div`
   position: relative;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
 `;
+const overlayVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
 
 interface IModalProps {
   children: React.ReactNode;
@@ -43,7 +61,13 @@ const Modal = ({ onClose, children }: IModalProps) => {
   }, []);
 
   return createPortal(
-    <Overlay onClick={onClose}>
+    <Overlay
+      onClick={onClose}
+      variants={overlayVariants}
+      initial='initial'
+      exit='exit'
+      animate='animate'
+    >
       <ModalContainer onClick={(e) => e.stopPropagation()}>
         {children}
       </ModalContainer>
