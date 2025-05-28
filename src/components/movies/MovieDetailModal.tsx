@@ -6,16 +6,13 @@ import Modal from "../modal/Modal";
 import MovieDetail from "./MovieDetail";
 
 const MovieDetailModal = () => {
-  const { movieId, closeModal, isOpen } = useModalStore(
+  const { movieId, closeModal } = useModalStore(
     useShallow((state) => ({
       movieId: state.movieId,
       closeModal: state.closeModal,
-      isOpen: state.isOpen,
     }))
   );
   const { data, isPending } = useGetMovieDetail(movieId);
-
-  if (!isOpen) return null;
 
   return (
     <Modal onClose={closeModal}>
