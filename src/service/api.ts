@@ -1,25 +1,36 @@
 const BASE_URL = "https://movies-api.nomadcoders.workers.dev";
 
+const fetchWithErrorHandling = async (url: string) => {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export const fetchPopular = async (): Promise<Movie.MovieListResponse> => {
-  const response = await fetch(`${BASE_URL}/popular`);
-  return response.json();
+  return fetchWithErrorHandling(`${BASE_URL}/popular`);
 };
 
 export const fetchNowPlaying =
   async (): Promise<Movie.MovieListWithDatesResponse> => {
-    const response = await fetch(`${BASE_URL}/now-playing`);
-    return response.json();
+    return fetchWithErrorHandling(`${BASE_URL}/now-playing`);
   };
 
 export const fetchComingSoon =
   async (): Promise<Movie.MovieListWithDatesResponse> => {
-    const response = await fetch(`${BASE_URL}/coming-soon`);
-    return response.json();
+    return fetchWithErrorHandling(`${BASE_URL}/coming-soon`);
   };
 
 export const fetchMovieDetail = async (
   id: number
 ): Promise<Movie.MovieDetail> => {
-  const response = await fetch(`${BASE_URL}/movie?id=${id}`);
-  return response.json();
+  return fetchWithErrorHandling(`${BASE_URL}/movie?id=${id}`);
 };
