@@ -1,13 +1,9 @@
-import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
-import Movies from "../components/movies/Movies";
+import MoviePageWrapper from "../components/common/MoviePageWrapper";
 import useGetNowPlayingList from "../hooks/useGetNowPlayingList";
 
 const NowPlaying = () => {
-  const { data, isPending } = useGetNowPlayingList();
-
-  if (isPending || !data) return <LoadingSpinner />;
-
-  return <Movies movies={data} />;
+  const queryResult = useGetNowPlayingList();
+  return <MoviePageWrapper queryResult={queryResult} />;
 };
 
 export default NowPlaying;

@@ -1,13 +1,9 @@
-import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
-import Movies from "../components/movies/Movies";
+import MoviePageWrapper from "../components/common/MoviePageWrapper";
 import useGetComingSoonList from "../hooks/useGetComingSoonList";
 
 const ComingSoon = () => {
-  const { data, isPending } = useGetComingSoonList();
-
-  if (isPending || !data) return <LoadingSpinner />;
-
-  return <Movies movies={data} />;
+  const queryResult = useGetComingSoonList();
+  return <MoviePageWrapper queryResult={queryResult} />;
 };
 
 export default ComingSoon;

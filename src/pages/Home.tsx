@@ -1,13 +1,9 @@
-import LoadingSpinner from "../components/loadingSpinner/LoadingSpinner";
-import Movies from "../components/movies/Movies";
+import MoviePageWrapper from "../components/common/MoviePageWrapper";
 import useGetPopularList from "../hooks/useGetPopularList";
 
 const Home = () => {
-  const { data, isPending } = useGetPopularList();
-
-  if (isPending || !data) return <LoadingSpinner />;
-
-  return <Movies movies={data} />;
+  const queryResult = useGetPopularList();
+  return <MoviePageWrapper queryResult={queryResult} />;
 };
 
 export default Home;
