@@ -4,25 +4,30 @@ import ComingSoon from "./pages/ComingSoon";
 import Home from "./pages/Home";
 import NowPlaying from "./pages/NowPlaying";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        {
+          path: "",
+          element: <Home />,
+        },
+        {
+          path: "coming-soon",
+          element: <ComingSoon />,
+        },
+        {
+          path: "now-playing",
+          element: <NowPlaying />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "coming-soon",
-        element: <ComingSoon />,
-      },
-      {
-        path: "now-playing",
-        element: <NowPlaying />,
-      },
-    ],
-  },
-]);
+    basename: "/surflix/",
+  }
+);
 
 export default router;
