@@ -53,15 +53,6 @@ const Modal = ({ onClose, children }: IModalProps) => {
   const portalElement = document.getElementById("portal-root") || document.body;
   const layoutId = useModalStore((state) => state.layoutId);
 
-  //NOTE - scroll을 방지하면 기존 UI가 깨지는 현상 때문에 임시 주석
-  // useEffect(() => {
-  //   document.body.style.overflow = "hidden";
-
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   };
-  // }, []);
-
   return createPortal(
     <Overlay
       onClick={onClose}
