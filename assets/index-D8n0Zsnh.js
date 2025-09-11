@@ -191,7 +191,7 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
   max-width: 80rem;
   width: 90%;
   max-height: 90vh;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
 `,z4={initial:{opacity:0},animate:{opacity:1,transition:{duration:.2}},exit:{opacity:0,transition:{duration:.2}}},L4=({onClose:e,children:n})=>{const r=document.getElementById("portal-root")||document.body,s=Us(o=>o.layoutId);return C4.createPortal(F.jsx(O4,{onClick:e,variants:z4,initial:"initial",exit:"exit",animate:"animate",children:F.jsx(_4,{onClick:o=>o.stopPropagation(),layoutId:s,children:n})}),r)},j4=e=>{const n=Math.floor(e/60),r=e%60;return`${n}시간 ${r}분`},U4=(e,n=4)=>e.length<=n?e.map(r=>r.name).join(", "):`${e.slice(0,n).map(r=>r.name).join(", ")}...`,N4=e=>new Date(e).getFullYear(),V4=e=>e.toLocaleString(),kT=e=>e.toFixed(1),zp=(e,n)=>`https://image.tmdb.org/t/p/${n??"original"}${e}`,B4=wt.div`
@@ -199,7 +199,6 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
   width: 100%;
   background-color: ${({theme:e})=>e.bgSecondary};
   border-radius: 0.6rem;
-  overflow: hidden;
 `,P4=wt.div`
   position: relative;
   height: 40rem;
@@ -278,7 +277,7 @@ Please change the parent <Route path="${L}"> to <Route path="${L==="/"?"*":`${L}
   }
 `,X4=({detailData:e})=>{const{closeModal:n}=Us(Mo(r=>({closeModal:r.closeModal})));return F.jsxs(B4,{children:[F.jsx(H4,{onClick:n,children:"✕"}),F.jsxs(P4,{$bgPhoto:zp(e.backdrop_path),children:[F.jsx(q4,{children:e.title}),F.jsxs(G4,{children:[F.jsx("p",{children:N4(e.release_date)}),F.jsx("p",{children:j4(e.runtime)})]})]}),F.jsxs(Y4,{children:[F.jsx(k4,{children:e.overview}),F.jsxs(Q4,{children:[F.jsxs(Qb,{children:[F.jsxs(tc,{children:[F.jsx("span",{children:"장르:"})," ",F.jsx("p",{children:U4(e.genres)})]}),F.jsxs(tc,{children:[F.jsx("span",{children:"개봉일:"}),F.jsx("p",{children:V4(e.release_date)})]})]}),F.jsxs(Qb,{children:[F.jsxs(tc,{children:[F.jsx("span",{children:"평점:"})," ",F.jsx("p",{children:kT(e.vote_average)})]}),F.jsxs(tc,{children:[F.jsx("span",{children:"원제:"})," ",F.jsx("p",{children:e.original_title})]})]})]})]})]})},K4=()=>{const{movieId:e,closeModal:n}=Us(Mo(o=>({movieId:o.movieId,closeModal:o.closeModal}))),{data:r,isPending:s}=E4(e);return F.jsx(L4,{onClose:n,children:s||!r?F.jsx(YT,{type:"modal"}):F.jsx(X4,{detailData:r})})},F4=wt.div`
   padding-bottom: 2rem;
-`,Z4=()=>{const e=Us(n=>n.isOpen);return F.jsx(mM,{children:F.jsxs(F.Fragment,{children:[F.jsxs(F4,{children:[F.jsx(N3,{}),F.jsx(CA,{})]}),e&&F.jsx(K4,{})]})})};function $4(){return F.jsx(Z4,{})}const J4=wt(Rp)`
+`,Z4=()=>{const e=Us(n=>n.isOpen);return C.useEffect(()=>(e?document.body.style.overflow="hidden":document.body.style.overflow="unset",()=>{document.body.style.overflow="unset"}),[e]),F.jsx(mM,{children:F.jsxs(F.Fragment,{children:[F.jsxs(F4,{children:[F.jsx(N3,{}),F.jsx(CA,{})]}),e&&F.jsx(K4,{})]})})};function $4(){return F.jsx(Z4,{})}const J4=wt(Rp)`
   fill: ${({theme:e})=>e.textPrimary};
 
   path {
