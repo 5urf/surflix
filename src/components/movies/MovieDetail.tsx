@@ -15,7 +15,6 @@ const Container = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.bgSecondary};
   border-radius: 0.6rem;
-  overflow: hidden;
 `;
 
 const Banner = styled.div<{ $bgPhoto: string }>`

@@ -22,7 +22,7 @@ const ModalContainer = styled(motion.div)`
   max-width: 80rem;
   width: 90%;
   max-height: 90vh;
-  overflow: hidden;
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3), 0 6px 20px rgba(0, 0, 0, 0.2);
 `;
