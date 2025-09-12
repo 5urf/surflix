@@ -14,11 +14,12 @@ const Nav = styled(motion.nav)`
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 100%;
+  width: calc(100% - var(--scrollbar-width, 0px));
   top: 0;
   font-size: 14px;
   padding: 1.5rem 6rem;
   z-index: 100;
+  transition: background-color 0.3s ease-in-out;
 
   ${({ theme }) => theme.mobile} {
     padding: 1.5rem 2rem;

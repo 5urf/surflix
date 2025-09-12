@@ -62,6 +62,12 @@ body {
   background-color: ${({ theme }) => theme.bgPrimary};
 }
 
+body.modal-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width);
+}
+
+
 a {
   text-decoration: none;
   color: inherit;
