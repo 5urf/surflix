@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 import styled from "styled-components";
 import Header from "../components/header/Header";
 import MovieDetailModal from "../components/movies/MovieDetailModal";
-import { useModalStore } from "../store/modalStore";
+import { useUIStore } from "../store/uiStore";
 import { getScrollbarWidth } from "../utils/styleUtil";
 
 const Container = styled.div`
@@ -12,10 +12,10 @@ const Container = styled.div`
 `;
 
 const MovieLayout = () => {
-  const isOpen = useModalStore((state) => state.isOpen);
+  const isModalOpen = useUIStore((state) => state.isModalOpen);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isModalOpen) {
       const scrollbarWidth = getScrollbarWidth();
       document.body.classList.add("modal-open");
       document.body.style.setProperty(
@@ -31,7 +31,7 @@ const MovieLayout = () => {
       document.body.classList.remove("modal-open");
       document.body.style.removeProperty("--scrollbar-width");
     };
-  }, [isOpen]);
+  }, [isModalOpen]);
 
   return (
     <AnimatePresence>
@@ -40,7 +40,7 @@ const MovieLayout = () => {
           <Header />
           <Outlet />
         </Container>
-        {isOpen && <MovieDetailModal />}
+        {isModalOpen && <MovieDetailModal />}
       </>
     </AnimatePresence>
   );

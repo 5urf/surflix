@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import { createPortal } from "react-dom";
 import styled from "styled-components";
-import { useModalStore } from "../../store/modalStore";
+import { useUIStore } from "../../store/uiStore";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -51,7 +51,7 @@ interface IModalProps {
 
 const Modal = ({ onClose, children }: IModalProps) => {
   const portalElement = document.getElementById("portal-root") || document.body;
-  const layoutId = useModalStore((state) => state.layoutId);
+  const layoutId = useUIStore((state) => state.layoutId);
 
   return createPortal(
     <Overlay

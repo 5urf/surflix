@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
-import { useModalStore } from "../../store/modalStore";
+import { useUIStore } from "../../store/uiStore";
 import {
   formatFullYear,
   formatGenres,
@@ -116,7 +116,7 @@ interface IMovieDetailProps {
 }
 
 const MovieDetail = ({ detailData }: IMovieDetailProps) => {
-  const { closeModal } = useModalStore(
+  const { closeModal } = useUIStore(
     useShallow((state) => ({
       closeModal: state.closeModal,
     }))

@@ -2,7 +2,7 @@ import { motion, Variants } from "framer-motion";
 import { useLocation } from "react-router";
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
-import { useModalStore } from "../../store/modalStore";
+import { useUIStore } from "../../store/uiStore";
 import { formatRating } from "../../utils/formatUtil";
 import { makeImagePath } from "../../utils/imgUtil";
 
@@ -80,7 +80,7 @@ const MovieCard = ({ id, title, posterPath, voteAverage }: IMovieCardProps) => {
   const location = useLocation();
   const layoutId = `${location.pathname}-${id}`;
 
-  const { openModal } = useModalStore(
+  const { openModal } = useUIStore(
     useShallow((state) => ({
       openModal: state.openModal,
     }))

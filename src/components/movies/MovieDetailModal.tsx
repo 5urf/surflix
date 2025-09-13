@@ -1,12 +1,12 @@
 import { useShallow } from "zustand/shallow";
 import useGetMovieDetail from "../../hooks/useGetMovieDetail";
-import { useModalStore } from "../../store/modalStore";
+import { useUIStore } from "../../store/uiStore";
 import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import Modal from "../modal/Modal";
 import MovieDetail from "./MovieDetail";
 
 const MovieDetailModal = () => {
-  const { movieId, closeModal } = useModalStore(
+  const { movieId, closeModal } = useUIStore(
     useShallow((state) => ({
       movieId: state.movieId,
       closeModal: state.closeModal,

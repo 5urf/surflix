@@ -1,35 +1,35 @@
 import { create } from "zustand";
 
-interface IModalState {
-  isOpen: boolean;
+interface IUIState {
+  isModalOpen: boolean;
   movieId: number | null;
   layoutId?: string;
 }
 
-interface IModalStore extends IModalState {
+interface IUIStore extends IUIState {
   openModal: (id: number, layoutId?: string) => void;
   closeModal: () => void;
 }
 
-const initialState: IModalState = {
-  isOpen: false,
+const initialState: IUIState = {
+  isModalOpen: false,
   movieId: null,
   layoutId: undefined,
 };
 
-export const useModalStore = create<IModalStore>((set) => ({
+export const useUIStore = create<IUIStore>((set) => ({
   ...initialState,
 
   openModal: (id: number, layoutId?: string) =>
     set({
-      isOpen: true,
+      isModalOpen: true,
       movieId: id,
-      layoutId: layoutId,
+      layoutId,
     }),
 
   closeModal: () =>
     set({
-      isOpen: false,
+      isModalOpen: false,
       movieId: null,
       layoutId: undefined,
     }),

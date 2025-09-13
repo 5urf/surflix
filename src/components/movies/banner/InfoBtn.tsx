@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useShallow } from "zustand/shallow";
 import InfoIcon from "../../../assets/InfoIcon";
-import { useModalStore } from "../../../store/modalStore";
+import { useUIStore } from "../../../store/uiStore";
 
 const Container = styled.div`
   margin-top: 1rem;
@@ -43,7 +43,7 @@ interface IInfoBtnProps {
 }
 
 const InfoBtn = ({ movieId }: IInfoBtnProps) => {
-  const { openModal } = useModalStore(
+  const { openModal } = useUIStore(
     useShallow((state) => ({
       openModal: state.openModal,
     }))
