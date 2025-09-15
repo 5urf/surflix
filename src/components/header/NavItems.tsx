@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { NavLink } from "react-router";
 import styled from "styled-components";
-import LogoIcon from "../../assets/LogoIcon";
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +38,6 @@ const Text = styled(motion.p)<{ isActive: boolean }>`
 const NavItems = () => {
   return (
     <Container>
-      <LogoIcon />
       <Items>
         <Item>
           <NavLink
