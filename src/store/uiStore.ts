@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 interface IUIState {
   isModalOpen: boolean;
+  isMenuOpen: boolean;
   movieId: number | null;
   layoutId?: string;
 }
@@ -9,10 +10,12 @@ interface IUIState {
 interface IUIStore extends IUIState {
   openModal: (id: number, layoutId?: string) => void;
   closeModal: () => void;
+  toggleMenu: () => void;
 }
 
 const initialState: IUIState = {
   isModalOpen: false,
+  isMenuOpen: false,
   movieId: null,
   layoutId: undefined,
 };
@@ -33,4 +36,6 @@ export const useUIStore = create<IUIStore>((set) => ({
       movieId: null,
       layoutId: undefined,
     }),
+
+  toggleMenu: () => set((state) => ({ isMenuOpen: !state.isMenuOpen })),
 }));

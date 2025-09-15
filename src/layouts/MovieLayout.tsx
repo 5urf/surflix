@@ -12,10 +12,10 @@ const Container = styled.div`
 `;
 
 const MovieLayout = () => {
-  const isModalOpen = useUIStore((state) => state.isModalOpen);
+  const { isModalOpen, isMenuOpen } = useUIStore();
 
   useEffect(() => {
-    if (isModalOpen) {
+    if (isModalOpen || isMenuOpen) {
       const scrollbarWidth = getScrollbarWidth();
       document.body.classList.add("modal-open");
       document.body.style.setProperty(
@@ -31,7 +31,7 @@ const MovieLayout = () => {
       document.body.classList.remove("modal-open");
       document.body.style.removeProperty("--scrollbar-width");
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, isMenuOpen]);
 
   return (
     <AnimatePresence>
